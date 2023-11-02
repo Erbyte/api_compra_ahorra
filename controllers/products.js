@@ -7,11 +7,11 @@ const Product = require('../models/product');
 // Post method
 const productsPost = async (req, res = response) => {
     // Get data from body
-    const { sku, name, description, brand, model, price, stock, category } = req.body;
+    const { sku, name, description, brand, model, price, stock, image, category } = req.body;
 
     // Create new product
     const product = new Product({
-        sku, name, description, brand, model, price, stock, category
+        sku, name, description, brand, model, price, stock, image, category
     });
 
     // Save to database
@@ -62,7 +62,6 @@ const productsGet = async (req = request, res = response) => {
 
     // Return response
     res.json({
-        total,
         products
     });
 }
